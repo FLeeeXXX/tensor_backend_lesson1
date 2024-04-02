@@ -1,29 +1,16 @@
-def get_sum_even_numbers(num):
-    sum = 0
+def get_numbers_sum(num):
+    even_sum = 0
+    odd_sum = 0
 
-    while num > 0:
-        digit = num % 10
-
-        if digit % 2 == 0:
-            sum += digit
-        num = num // 10
-
-    return sum
-
-def get_sum_odd_numbers(num):
-    sum = 0
-
-    while num > 0:
-        digit = num % 10
-
-        if digit % 2 != 0:
-            sum += digit
-        num = num // 10
-
-    return sum
+    for i in num:
+        if int(i) % 2 == 0:
+            even_sum += int(i)
+        else:
+            odd_sum += int(i)
+    
+    return [odd_sum,even_sum]
 
 if __name__ == "__main__":
-    num = int(input("Enter a number: "))
-    evenSum = get_sum_even_numbers(num)
-    oddSum = get_sum_odd_numbers(num)
-    print(f"{oddSum} {evenSum}")
+    num = input("Enter a number: ")
+    result = get_numbers_sum(num)
+    print(f"{result[0]} {result[1]}")
